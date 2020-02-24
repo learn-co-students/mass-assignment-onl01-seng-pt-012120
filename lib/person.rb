@@ -3,6 +3,11 @@ class Person
 :weight, :handed, :complexion, :t_shirt_size,
 :wrist_size, :glove_size, :pant_length, :pant_width
 
-  def initialize(name:, birthday:)
+  def initialize(attributes = nil)
+    if attributes
+      attributes.each do |k, v|
+        self.send("#{k}=", v) #this is iterating over keys to output key = value
+      end
+    end
   end
 end
